@@ -73,7 +73,7 @@
                   v-else-if="slots['header']"
                   name="header"
                   v-bind="header"
-                />   
+                />
                 <span
                   v-else
                   class="header-text"
@@ -145,7 +145,7 @@
                 // eslint-disable-next-line max-len
                 }, typeof bodyItemClassName === 'string' ? bodyItemClassName : bodyItemClassName(column, index + 1), `direction-${bodyTextDirection}`]"
                 @click="column === 'expand' ? updateExpandingItemIndexList(index + prevPageEndIndex, item, $event) : null"
-              > 
+              >
                 <slot
                   v-if="slots[`item-${column}`]"
                   :name="`item-${column}`"
@@ -156,7 +156,7 @@
                   :name="`item-${column.toLowerCase()}`"
                   v-bind="item"
                 />
-                <template v-else-if="column === 'expand'">
+                <template v-else-if="column === 'expand' && expandOnItem(item)">
                   <i
                     class="expand-icon"
                     :class="{'expanding': expandingItemIndexList.includes(prevPageEndIndex + index)}"
@@ -575,6 +575,10 @@ const getFixedDistance = (column: string, type: 'td' | 'th' = 'th') => {
   }
   return undefined;
 };
+
+const expandOnItem = (item: Item) : boolean => {
+  return item.expandable;
+}
 
 watch(loading, (newVal, oldVal) => {
   if (serverOptionsComputed.value) {
