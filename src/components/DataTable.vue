@@ -181,20 +181,18 @@
             <tr
               v-if="ifHasExpandSlot && expandingItemIndexList.includes(index + prevPageEndIndex)"
               :class="[{'even-row': (index + 1) % 2 === 0},
-                       typeof bodyExpandRowClassName === 'string' ? bodyExpandRowClassName : bodyExpandRowClassName(item, index + 1)]"
+              typeof bodyExpandRowClassName === 'string' ? bodyExpandRowClassName : bodyExpandRowClassName(item, index + 1)]"
             >
               <td
-                :colspan="headersForRender.length"
                 class="expand"
+                v-for="(column, i) in headerColumns"
+                :style="getFixedDistance(column, 'td')"
               >
-                <LoadingLine
+              <LoadingLine
                   v-if="item.expandLoading"
                   class="expand-loading"
                 />
-                <slot
-                  name="expand"
-                  v-bind="item"
-                />
+                <slot name="expand" v-bind:item="item"/>
               </td>
             </tr>
           </template>
