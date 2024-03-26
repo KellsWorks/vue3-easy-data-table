@@ -192,7 +192,7 @@
                   v-if="item.expandLoading"
                   class="expand-loading"
                 />
-                <slot name="expand" v-bind:item="item"/>
+                <slot name="expand" v-bind="item"/>
               </td>
             </tr>
           </template>
