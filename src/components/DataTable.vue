@@ -202,7 +202,7 @@
                 </template>
               </td>
             </tr>
-            <tr
+            <template
               v-if="
                 ifHasExpandSlot &&
                 expandingItemIndexList.includes(index + prevPageEndIndex)
@@ -219,7 +219,7 @@
                 :headerColumns="headerColumns"
                 :item="item"
               />
-            </tr>
+            </template>
           </template>
           <slot
             name="body-append"
