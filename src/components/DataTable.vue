@@ -215,6 +215,7 @@
                 :index="index"
                 :prevPageEndIndex="prevPageEndIndex"
                 :bodyExpandRowClassName="bodyExpandRowClassName"
+                :getFixedDistance="getFixedDistance"
                 :headerColumns="headerColumns"
                 :item="item"
               />
