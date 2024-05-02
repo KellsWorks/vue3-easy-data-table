@@ -202,24 +202,17 @@
                 </template>
               </td>
             </tr>
-            <template
-              v-if="
-                ifHasExpandSlot &&
-                expandingItemIndexList.includes(index + prevPageEndIndex)
-              "
-            >
-              <slot
-                name="expand"
-                :ifHasExpandSlot="ifHasExpandSlot"
-                :expandingItemIndexList="expandingItemIndexList"
-                :index="index"
-                :prevPageEndIndex="prevPageEndIndex"
-                :bodyExpandRowClassName="bodyExpandRowClassName"
-                :getFixedDistance="getFixedDistance"
-                :headerColumns="headerColumns"
-                :item="item"
-              />
-            </template>
+            <slot
+              name="expand"
+              :ifHasExpandSlot="ifHasExpandSlot"
+              :expandingItemIndexList="expandingItemIndexList"
+              :index="index"
+              :prevPageEndIndex="prevPageEndIndex"
+              :bodyExpandRowClassName="bodyExpandRowClassName"
+              :getFixedDistance="getFixedDistance"
+              :headerColumns="headerColumns"
+              :item="item"
+            />
           </template>
           <slot
             name="body-append"
