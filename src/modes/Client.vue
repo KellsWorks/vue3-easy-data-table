@@ -66,7 +66,8 @@
       </template> -->
       <template #expand="item">
         <div style="padding: 15px">
-          {{ item.name }} won championships
+          <td v-if="item.column !== 'checkbox' && item.column == 'name'">{{ item.name }} won championships -- {{ item.column }}</td>
+          <td v-if="item.column !== 'checkbox' && item.column == 'team'">{{ item.name }} won championships -- {{ item.column }}</td>
         </div>
       </template>
 
